@@ -89,65 +89,6 @@
   </section>
 
 <!-- CONTACTO -->
-<form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-  <!-- Access key -->
-  <input type="hidden" name="access_key" value="b7b9d566-a5f6-4c2c-b697-02612d750196">
-
-  <!-- Honeypot (campo invisible para bots) -->
-  <input type="text" name="bot_field" style="display:none" tabindex="-1" autocomplete="off">
-
-  <input type="text" name="name" placeholder="Nombre" required />
-  <input type="email" name="email" placeholder="Correo electrónico" required />
-  <textarea name="message" placeholder="Mensaje" rows="5" required></textarea>
-
-  <button type="submit" class="btn">Enviar Mensaje</button>
-</form>
-
-<!-- Mensaje de estado -->
-<div id="form-status" style="display:none; text-align:center; margin-top:1rem; color:#c7d0da;"></div>
-
-<script>
-document.getElementById('contact-form').addEventListener('submit', async function (e) {
-  e.preventDefault();
-  const form = e.target;
-  const status = document.getElementById('form-status');
-
-  // Honeypot check
-  if (form.bot_field && form.bot_field.value) {
-    status.style.display = 'block';
-    status.textContent = 'Envío sospechoso detectado.';
-    return;
-  }
-
-  status.style.display = 'block';
-  status.textContent = 'Enviando...';
-
-  try {
-    const res = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (res.ok) {
-      form.reset();
-      status.textContent = '✅ Mensaje enviado. Te contactaremos pronto.';
-    } else {
-      const data = await res.json().catch(()=>({}));
-      status.textContent = '⚠️ Error al enviar: ' + (data.message || 'Intenta de nuevo.');
-    }
-  } catch (err) {
-    console.error(err);
-    status.textContent = '❌ Error de conexión. Intenta más tarde.';
-  }
-
-  setTimeout(()=>{ status.style.display = 'none'; }, 8000);
-});
-</script>
-
-
-
-<!-- CONTACTO -->
 <section id="contacto" class="contact section">
   <div class="container">
     <h2 class="section-title">Contáctanos</h2>
@@ -182,6 +123,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   </footer>
 </body>
 </html>
+
 
 
 
