@@ -88,19 +88,28 @@
     </div>
   </section>
 
-  <!-- CONTACTO -->
-  <section id="contacto" class="contact section">
-    <div class="container">
-      <h2 class="section-title">Contáctanos</h2>
-      <p>Cuéntanos qué necesitas y nos pondremos en contacto contigo en menos de 24 horas.</p>
-      <form class="contact-form">
-        <input type="text" placeholder="Nombre" required />
-        <input type="email" placeholder="Correo electrónico" required />
-        <textarea placeholder="Mensaje" rows="5" required></textarea>
-        <button type="submit" class="btn">Enviar Mensaje</button>
-      </form>
-    </div>
-  </section>
+<!-- CONTACTO -->
+<section id="contacto" class="contact section">
+  <div class="container">
+    <h2 class="section-title">Contáctanos</h2>
+    <p>Cuéntanos qué necesitas y nos pondremos en contacto contigo en menos de 24 horas.</p>
+
+    <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+
+
+      <input type="hidden" name="access_key" value="b7b9d566-a5f6-4c2c-b697-02612d750196">
+
+      <!-- Campos del formulario -->
+      <input type="text" name="name" placeholder="Nombre" required />
+      <input type="email" name="email" placeholder="Correo electrónico" required />
+      <textarea name="message" placeholder="Mensaje" rows="5" required></textarea>
+
+      <!-- Botón -->
+      <button type="submit" class="btn">Enviar Mensaje</button>
+
+    </form>
+  </div>
+</section>
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -110,4 +119,5 @@
   </footer>
 </body>
 </html>
+
 
